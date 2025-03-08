@@ -15,7 +15,11 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner =
+            "androidx.test.runner.AndroidJUnitRunner"        // Using a property for Google Maps API key safely
+        resValue("string", "google_maps_key",
+            (project.findProperty("google_maps_api_key") ?: "").toString()
+        )
     }
 
     buildTypes {
@@ -47,23 +51,27 @@ android {
 
 dependencies {
     // Firebase BoM for version management
-    implementation(platform("com.google.firebase:firebase-bom:31.1.0"))
+    implementation(platform("com.google.firebase:firebase-bom:32.0.0")) // Latest version of Firebase BoM
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-messaging-ktx")
+    implementation("com.google.android.gms:play-services-location:18.0.0")
+    implementation("com.google.android.libraries.places:places:2.7.0")
+    implementation("com.google.android.gms:play-services-maps:18.0.0") // Updated to the latest version
 
-    // Optional dependencies
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
+    // Optional dependencies (ensure they are compatible with your project)
+    implementation("androidx.core:core-ktx:1.9.0")  // Updated version for Core KTX
+    implementation("androidx.appcompat:appcompat:1.6.1")  // Updated version for AppCompat
+    implementation("com.google.android.material:material:1.9.0")  // Updated version for Material Design
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")  // Updated version for ConstraintLayout
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0")  // Updated LiveData KTX version
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")  // Updated ViewModel KTX version
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.1")  // Updated Navigation Fragment version
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.1")  // Updated Navigation UI version
+    implementation("com.google.firebase:firebase-database-ktx:20.0.0")  // Firebase Realtime Database KTX
 
     // Testing libraries
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation("junit:junit:4.13.2")  // Updated version for JUnit testing
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")  // Updated version for AndroidJUnitRunner
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")  // Updated version for Espresso testing
 }
