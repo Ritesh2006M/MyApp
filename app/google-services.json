@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "747251619768",
+    "project_id": "mineral-subject-450718-j1",
+    "storage_bucket": "mineral-subject-450718-j1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747251619768:android:17dc10251039516701214d",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdi1IobU6kZ5x10zZyQVInQIwRUhOOFWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
