@@ -47,7 +47,14 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Login success
                     Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
-                    // Redirect to the Dashboard or Main Activity here
+
+                    // Redirect to MainActivity after successful login
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+
+                    // Finish LoginActivity to prevent going back to it
+                    finish() // <-- This line closes the LoginActivity
+
                 } else {
                     // If login fails, display a message to the user.
                     Toast.makeText(
@@ -58,4 +65,5 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+
 }
